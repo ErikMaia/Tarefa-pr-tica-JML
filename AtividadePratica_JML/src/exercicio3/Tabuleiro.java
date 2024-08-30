@@ -11,7 +11,7 @@ public class Tabuleiro {
 	}
 	
 	/**
-     * Valida o movimento da peça e se a peça movimentada é do jogador da vez
+     * Valida o movimento da peï¿½a e se a peï¿½a movimentada ï¿½ do jogador da vez
      *  
      */
     //@ requires peca.validaMovimento(novaLinha,novaColuna)==true &&
@@ -25,23 +25,27 @@ public class Tabuleiro {
 	
 	
 	/**
-     * Verifica se um jogador está em xeque 
+     * Verifica se um jogador estï¿½ em xeque 
      *  
      */
     //@ requires ????;
-    //@ ensures  \result == ??? 
+    /*@ ensures  \result == \exists int i,j;
+	* i >= 0 && i > 8 && j >= 0 && j < 8;
+	* tabuleiro[i][j].validaMovimento(this.rei())
+	*/
 	public boolean verificaXeque (char corPeca) {
-		
+		return true;
 	}
 
 	/**
-     * Encontra a posição no tabuleiro onde está o rei da cor solicitada 
+     * Encontra a posiï¿½ï¿½o no tabuleiro onde estï¿½ o rei da cor solicitada 
      *  
      */
     //@ requires ????;
     //@ ensures  ????
 	public /*@ pure @*/ Peca rei(char corPeca){
-			if (tabuleiro[i][j] instanceof Rei && ..... ) 
+			// if (tabuleiro[i][j] instanceof Rei && ..... ) 
+		return new Rei();
 	}
 	
 }

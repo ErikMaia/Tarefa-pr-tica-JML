@@ -2,16 +2,16 @@ package exercicio3;
 
 public class Bispo extends Peca {
 
-	@Override
-
-	/**
-     * Verifica se o movimento do bispo está correto 
+    
+    /**
+     * Verifica se o movimento do bispo estï¿½ correto 
      *  
      */
     //@ requires ????;
     //@ ensures  ????;
+    @Override
 	public boolean validaMovimento(int novaLinha, int novaColuna) {
-		
+		return false;
 	}
 
 }

@@ -8,18 +8,20 @@ public abstract class Peca {
 	private Tabuleiro tabuleiro;
 	
     /**  invariantes de classe **/
-	//@ invariant cor == "P" || cor == "B";
-    //@ .....
+	// @ invariant cor == "P" || cor == "B";
+    // @ invariant linha > 0 && linha < 8;
+    // @ invariante coluna > 0 && coluna < 8;
 	
 	
 	/**
-     * Verifica se a nova posição está desocupada ou está 
-     * ocupada por uma peça do adversário 
+     * Verifica se a nova posiï¿½ï¿½o estï¿½ desocupada ou estï¿½ 
+     * ocupada por uma peï¿½a do adversï¿½rio 
      *  
      */
-    //@ requires ????;
-    //@ ensures  \result == tabuleiro[novaLinha][novaColuna] == NULL && ????;
-	public boolean abstract validaMovimento(int novaLinha, int novaColuna);
+    //@ requires novaLinha >= 0 &&  novaLinha < 8;
+    //@ requires novaColuna >= 0 &&  novaColuna < 8;
+    //@ ensures  \result == (tabuleiro.tabuleiro[novaLinha][novaColuna] == NULL) || tabuleiro.tabuleiro[novaLinha][novaColuna].cor != tabuleiro.jogadorDaVez;
+	public abstract boolean validaMovimento(int novaLinha, int novaColuna);
 	
 
 

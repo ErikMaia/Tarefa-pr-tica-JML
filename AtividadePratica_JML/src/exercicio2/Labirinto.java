@@ -13,20 +13,23 @@ public class Labirinto {
   public final static int SAIDA = 2;
 
   /**
-   * O labirinto é formado por uma matriz retangular na qual:
+   * O labirinto ï¿½ formado por uma matriz retangular na qual:
    *
-   *   - As paredes são representadas pelas posições com o valor Labirinto.PAREDE ('1')
-   *   - A saída é representadas pelas posições com o valor Labirinto.SAIDA ('2')
-   *   - Todas as outras posições são livres, Labirinto.LIVRE ('0')
+   *   - As paredes sï¿½o representadas pelas posiï¿½ï¿½es com o valor Labirinto.PAREDE ('1')
+   *   - A saï¿½da ï¿½ representadas pelas posiï¿½ï¿½es com o valor Labirinto.SAIDA ('2')
+   *   - Todas as outras posiï¿½ï¿½es sï¿½o livres, Labirinto.LIVRE ('0')
    */
-  private int[][] labirinto;
+  // @  public invariant \forall int i,j; i > 0 && i < labirinto.length && j > 0 && j < labirinto[0].length; labirinto[i][j] >= 0 && labirinto[i][j]<=3;
+  private /*@ spec_public @*/ int[][] labirinto;
 
   /**
-   * Posição do jogador:
+   * Posiï¿½ï¿½o do jogador:
    *
-   *   - A posição do jogador deve sempre ser uma célula dentro do labirinto que não seja parede.
+   *   - A posiï¿½ï¿½o do jogador deve sempre ser uma cï¿½lula dentro do labirinto que nï¿½o seja parede.
+   * @ invariant linhaJogador >= 0 && linhaJogador <= labirinto.length;
+   * @ invariant colunaJoagor >= 0 && colunaJoagor <= labirinto[0].length;
    */
-  private int linhaJogador, colunaJogador;
+  private /*@ spec_public @*/ int linhaJogador, colunaJogador;
   
 
   public Labirinto(int[][] labirinto, int linhaInicio, int colunaInicio) {
@@ -37,29 +40,33 @@ public class Labirinto {
   }
 
   /**
-   * Retorna true se o jogador alcançou a saída do labirinto
+   * Retorna true se o jogador alcanï¿½ou a saï¿½da do labirinto
+   * @ requires ????;
+   * @ ensures  \result == (labirinto[linhaJogador][colunaJogador] == 2);
    */
   public boolean venceu() {
     throw new RuntimeException();
   }
 
   /**
-   * O movimento para a posiçao (novaLinha, novaColuna) é possível se estiver dentro das 
-   * dimensões do labirinto e estiver livre (não é uma parede)
+   * O movimento para a posiï¿½ao (novaLinha, novaColuna) ï¿½ possï¿½vel se estiver dentro das 
+   * dimensï¿½es do labirinto e estiver livre (nï¿½o ï¿½ uma parede)
+   * @ requires ((novaLinha == linhaJogador+1 || novaLinha == linhaJogador-1) && novaColuna == colunaJogador) || ((novaColuna == colunaJogador+1 || novaColuna == colunaJogador-1) && novaLinha == linhaJogador); 
+   * @ ensures \results != (labirinto[novaLinha][novaColuna] == 2)
    */
   public boolean movimentoPossivel(int novaLinha, int novaColuna) {
     throw new RuntimeException();
   }
 
   /**
-   * A partir da direção dada, realiza o movimento se for possível, 
-   * caso contrário o jogador fica na mesma posição.
-   * A direção deve ser uma daquelas definidas (veja as constantes MOVE_xyz).
+   * A partir da direï¿½ï¿½o dada, realiza o movimento se for possï¿½vel, 
+   * caso contrï¿½rio o jogador fica na mesma posiï¿½ï¿½o.
+   * A direï¿½ï¿½o deve ser uma daquelas definidas (veja as constantes MOVE_xyz).
    * O valor de retorno indica se o movimento foi realizado.
    */
   
   /*@ requires direcao == Labirinto.MOVE_ACIMA && this.linhaJogador
-   * 
+   * @ ensures (\result == movimentoPossivel(linhaJogador+1, colunaJogador) && \old(linhaJogador) != linhaJogador ) || (!movimentoPossivel(linhaJogador+1, colunaJogador) && \old(linhaJogador) == linhaJogador)
    */
   public boolean move(int direcao) {
     throw new RuntimeException();

@@ -4,19 +4,20 @@ public class Transition {
 	
 	// atributos
 	
-	// estado corrente da máquina
+	// estado corrente da mï¿½quina
 	private String state;
-	// símbolo sob a cabeça de leitura da máquina 
+	// sï¿½mbolo sob a cabeï¿½a de leitura da mï¿½quina 
 	private char   symbol;
-	// estado resultante da transição
+	// estado resultante da transiï¿½ï¿½o
 	private String targetState;
 	// simbolo a ser gravado na fita
 	private char   symbolGravado;
+
+	private String currentState; 
 		
-	// movimentação da cabeça de leitura (D para direita e E para esquerda)
+	// movimentaï¿½ï¿½o da cabeï¿½a de leitura (D para direita e E para esquerda)
     private char   moviment;
 
-    
     public Transition(String cs, char s, String ts, char m){
     	currentState = cs;
     	symbol       = s;
@@ -24,27 +25,19 @@ public class Transition {
     	moviment     = m;
     }
 
-
 	public String getCurrentState() {
 		return currentState;
 	}
-
 
 	public char /*@ pure @*/ getSymbol() {
 		return symbol;
 	}
 
-
 	public String getTargetState() {
 		return targetState;
 	}
 
-
 	public char getMoviment() {
 		return moviment;
 	}
-	
-    
-    
-
 }
